@@ -13,7 +13,7 @@ Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgi
 8. die Kommandozeile öffnen und folgenden Befehl ausfühen:<br>
 pip install flask
 9. in der Kommandozeile zum Ordner wechseln, der die Datei app.py enthält
-10. den Befehl "python app.py" ausführen (im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile)
+10. den Befehl "python app.py" ausführen (im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile, z.B. http://127.0.0.1:5000/)
 11. die url in einem Browser öffnen
 
 
