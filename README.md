@@ -12,7 +12,7 @@ Die Datenbank besteht aus 6 Tabellen
 3. lebensmittelkategorie<br>
   In der Tabelle lebensmittelkategorien sind 11 verschiedene Kategorien aufgelistet. Diese Tabelle wird nicht verändert.
 4. menge<br>
-  Die Tabelle menge ist eine Schnittstelle der Tabellen rezept und zutaten. Diese Tabelle gibt an, welche Lebensmittel und wie viel für die Rezepte aus der Tabelle rezept benötigt werden. So kommt es also vor, dass es mehrere Einträge mit dem gleichen Wert des Fremdschlüssels RezeptID gibt, denn ein Rezept bestehlt üblicherweise aus mehr als nur einer Zutat.
+  Die Tabelle menge ist eine Schnittstelle der Tabellen rezept und zutaten. Diese Tabelle gibt an, welche Lebensmittel und welche Mengen für die Rezepte aus der Tabelle rezept benötigt werden. So kommt es also vor, dass es mehrere Einträge mit dem gleichen Wert des Fremdschlüssels RezeptID gibt, denn ein Rezept bestehlt üblicherweise aus mehr als nur einer Zutat.
 5. kuehlschrank<br>
   In der Tabelle kuehlschrank sind alle Lebensmittel verzeichnet, die sich momentan im Kühlschrank befinden, oder bereits verbraucht wurden.<br>
   Die Tabelle besitzt 3 Spalten: ZutatenID, da_seit und weg_seit.<br>
