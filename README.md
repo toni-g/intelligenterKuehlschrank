@@ -20,3 +20,4 @@ Die Datenbank besteht aus 6 Tabellen
   Dabei entspricht der Wert in der Spalte ZutatenID der ZutatenID der ausgewählen Zutat und der Wert in der Spalte da_seit der aktuellen Uhrzeit. Der Wert der Spalte weg_seit ist NULL, weil sich das Lebensmittel noch im Kühlschrank befindet.<br>
   Sobald das Lebensmittel wieder nicht ausgewählt ist, wird der Eintag in der Datenbank durch das aktuelle Datum in der Spalte weg_seit ergänzt.
 6. log_vorschlaege<br>
+  Jedes Mal, wenn der Nutzer wieder auf die Startseite kommt, werden die Rezepte, die ihm vorgeschlagen werden, in dieser Tabelle dokumentiert. Auch die aktuelle Zeit wird hier eingetragen.
