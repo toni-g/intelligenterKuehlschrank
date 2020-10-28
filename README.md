@@ -1,4 +1,4 @@
-# intelligenterKuehlschrank
+# der intelligente Kühlschrank
 Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgibt
 
 ### Datenbank
