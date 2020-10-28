@@ -8,8 +8,11 @@ Die Datenbank besteht aus 6 Tabellen
   Die Tabelle rezept enthält alle Rezepte, die von der Anwendung ausgegeben werden können. Hier sind Rezeptname, Zubereitung, Dauer und die Bilddatei gespeichert. Jedes Rezept besitzt eine ID, die der Hautschlüssel ist.<br>
   Sollte der Nutzer ein Rezept ohne Bild hochgeladen haben, ist die Bilddatei der Platzhalter "noimage.png".
 2. zutaten<br>
+  In der Tabelle zutaten sind alle Zutaten und ihre zugehörigen Kategorien zu finden. Die Zuaten sind durch den Hauptschlüssen ZutatenID eindeutig zuzuordnen.
 3. lebensmittelkategorie<br>
+  In der Tabelle lebensmittelkategorien sind 11 verschiedene Kategorien aufgelistet. Diese Tabelle wird nicht verändert.
 4. menge<br>
+
 5. kuehlschrank<br>
   In der Tabelle kuehlschrank sind alle Lebensmittel verzeichnet, die sich momentan im Kühlschrank befinden, oder bereits verbraucht wurden.<br>
   Die Tabelle besitzt 3 Spalten: ZutatenID, da_seit und weg_seit.<br>
