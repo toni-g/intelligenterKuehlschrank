@@ -2,14 +2,20 @@
 Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgibt
 
 ## Anleitung zum Öffnen
-0. alle Dateien herunterladen
-1. xampp insatllieren
-2. Module Apache und MySQL auf xampp starten
-3. localhost/phpmyadmin/ im Browser öffnen
-4. in der Menüleiste auf "Importieren" klicken
-5. im Absatz "Zu importierende Datei:" auf den Button "Datei auswählen" klicken und die heruntergeladene Datei "codecompetition.sql" öffnen
-. in der Kommandozeile folgenden Befehl ausfühen:<br>
+1. alle Dateien herunterladen
+2. xampp insatllieren
+3. Module Apache und MySQL auf xampp starten
+4. localhost/phpmyadmin/ im Browser öffnen
+5. links auf "Neu" klicken und so eine neue Datenbank erstellen (der Name der Datebank kann beliebig gewählt werden)
+6. die erstellte Datenbank auswählen und in der Menüleiste auf "Importieren" klicken
+7. im Absatz "Zu importierende Datei:" auf den Button "Datei auswählen" klicken und die heruntergeladene Datei "codecompetition.sql" öffnen
+
+8. die Kommandozeile öffnen und folgenden Befehl ausfühen:<br>
 pip install flask
+9. in der Kommandozeile zum Ordner wechseln, der die Datei app.py enthält
+10. den Befehl "python app.py" ausführen (im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile)
+11. die url in einem Browser öffnen
+
 
 ## Datenbank
 
