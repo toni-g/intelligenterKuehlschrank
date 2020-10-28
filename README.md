@@ -1,7 +1,17 @@
 # der intelligente Kühlschrank
 Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgibt
 
-### Datenbank
+## Anleitung zum Öffnen
+0. alle Dateien herunterladen
+1. xampp insatllieren
+2. Module Apache und MySQL auf xampp starten
+3. localhost/phpmyadmin/ im Browser öffnen
+4. in der Menüleiste auf "Importieren" klicken
+5. im Absatz "Zu importierende Datei:" auf den Button "Datei auswählen" klicken und die heruntergeladene Datei "codecompetition.sql" öffnen
+. in der Kommandozeile folgenden Befehl ausfühen:<br>
+pip install flask
+
+## Datenbank
 
 Die Datenbank besteht aus 6 Tabellen
 1. rezept<br>
