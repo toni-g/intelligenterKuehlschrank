@@ -18,7 +18,8 @@ pip install flask
 
 ## Anleitung zum Benutzen
 Nach dem Öffnen landen Sie auf der Startseite, wo zu sehen ist, welche Lebensmittel sich im Kühlschrank befinden und welche Gerichte daraus gekocht werden können.
-Sollten Sie die Anwendung zum ersten Mal öffnen, sehen Sie noch kein Rezept, weil Sie noch keine Lebensmittel ausgewählt haben.
+Sollten Sie die Anwendung zum ersten Mal öffnen, sehen Sie noch kein Rezept, weil Sie noch keine Lebensmittel ausgewählt haben. <br>
+Klicken Sie daher auf den Button "<- Zum Kühlschrank", wo Sie alle Lebensmittel sehen, die für die Rezepte benötigt werden. Die Lebensmittel sind nach Kategorien sortiert. Viele Lebensmittel sehen Sie nicht, da sich nur sechs Rezepte in der Datenbank befinden.<br>
 
 
 ## Datenbank
