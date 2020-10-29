@@ -16,6 +16,10 @@ pip install flask
 10. den Befehl "python app.py" ausführen (im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile, z.B. http://127.0.0.1:5000/)
 11. die url in einem Browser öffnen
 
+## Anleitung zum Benutzen
+Nach dem Öffnen landen Sie auf der Startseite, wo zu sehen ist, welche Lebensmittel sich im Kühlschrank befinden und welche Gerichte daraus gekocht werden können.
+Sollten Sie die Anwendung zum ersten Mal öffnen, sehen Sie noch kein Rezept, weil Sie noch keine Lebensmittel ausgewählt haben.
+
 
 ## Datenbank
 
