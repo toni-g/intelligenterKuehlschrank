@@ -3,7 +3,7 @@ Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgi
 
 ## Anleitung zum Öffnen
 1. alle Dateien herunterladen
-2. xampp installieren
+2. xampp installieren und ggf. Ports anpassen
 3. Module Apache und MySQL auf xampp starten
 4. localhost/phpmyadmin/ im Browser öffnen
 5. links auf "Neu" klicken und so eine neue Datenbank erstellen (der Name der Datebank kann beliebig gewählt werden)
