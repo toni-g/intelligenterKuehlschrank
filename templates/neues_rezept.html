@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			.back{
+				background-color: #cce6ff;
+				font-family:Lucida Grande;
+				font-size: 50px;
+				border:1px solid #004f99;
+				color: black;
+				width:100px;
+				line-height: 22px;
+				margin: 10px;
+				display:table;
+				vertical-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="overflow: hidden;">
+			<div style="float: left;">
+				<form action="/" style="width: 10%; float: left;">
+					<input type="submit" class="btn btn-primary back" name="back" value="←">
+				</form>
+			</div>
+			<div style="overflow: hidden;">
+				<h1 align="middle" style="overflow: hidden;">Neues Rezept hinzufügen</h1>
+				<form method="POST" action="/" enctype="multipart/form-data">
+					<div align="middle" id="testparent">
+						<h4>Rezeptname:</h4>
+						<input name="rezeptname" placeholder="Rezeptname" required><br>
+						<h4>Dauer:</h4>
+						<input name="dauer" placeholder="Dauer" required><br>
+						<div id="zut" align="middle" style="width: 50%;margin: 20px;">
+							<h4>Zutaten:</h4>
+							<div id="eingabe0">
+								<input name="menge" id="menge" placeholder="Menge" required />
+								<input type="text" name="lmittel" list="zutaten" placeholder="Zutat" id='zutlist' oninput="onInput(this.parentNode.id)" autocomplete="on" required>
+									<datalist id="zutaten">
+										{% for lebensmittel in allezutaten %}
+											<option value="{{lebensmittel}}" />
+										{% endfor %}
+									</datalist>
+								</input>
+								<select name="kat" id="kat" required>
+									{% for i in range(kategorien|length) %}
+										{% if i%2 == 0 %}
+											{% if kategorien[i] == "Sonstiges" %}
+												<option value="{{kategorien[i]}}" selected>{{kategorien[i]}}</option>
+											{% else %}
+												<option value="{{kategorien[i]}}">{{kategorien[i]}}</option>
+											{% endif %}
+										{% endif %}
+									{% endfor %}
+								</select>
+								<button id="delete" onclick="eingabelöschen(this.parentNode);return false;" disabled>✖</button>
+							</div>
+						</div><br>
+						<button onclick="neueEingaben();return false;">Neue Zutat</button> <!-- return false; damit das Formular nicht abgeschickt wird, sonder erst wenn der Hinzufügen-Button gedrückt wurde -->
+						<h4>Zubereitung:</h4>
+						<textarea name="zubereitung" placeholder="Zubereitung" style="width: 25%; height: 200px;" required></textarea><br>
+						<h4>Bilddatei:</h4>
+						<input type="file" id="img" name="img"><br>
+						
+						<input type="submit" value="Hinzufügen" style="background-color: #cce6ff; border:1px solid #004f99; color: black; width:200px;margin: 10px;">
+					</div>
+				</form>
+				
+				<script>
+					// Das Python-Array "kategorien" wird in das Javascript-Array "liste" konvertiert
+					var liste = new Array();
+					{% for i in range (kategorien|length) %}
+						{% if i%2 == 0 %}
+							liste.push("{{kategorien[i]}}");
+						{% else %}
+							var arr = new Array();
+							{% for k in kategorien[i] %}
+								arr.push("{{k}}");
+							{% endfor %}
+							liste.push(arr);
+						{% endif %}
+					{% endfor %}
+
+					function neueEingaben() {
+						var r = /\d+/;
+						var element = document.getElementById("zut");
+						var itm = element.lastElementChild;
+						var num = parseInt(itm.id.match(r))+1;
+						var cln = itm.cloneNode(true);
+
+						cln.id = "eingabe" + num;
+						cln.querySelector("#menge").value="";
+						cln.querySelector("#zutlist").value="";
+						cln.querySelector("#kat").value="Sonstiges";
+						cln.querySelector("#kat").disabled=false;
+						cln.querySelector("#delete").disabled=false;
+						
+						element.appendChild(cln);
+					}
+
+					function findeval(str){
+						for (var i = 0; i<liste.length; i++) {
+							if (i%2 != 0){
+								if(liste[i].includes(str)){
+									return true
+
+								}
+							}
+						}
+					}
+
+					function onInput(para){
+						var val = document.querySelector("#"+para).querySelector("#zutlist").value;
+						kat_select = document.querySelector("#"+para).querySelector("#kat");
+						console.log(val);
+
+						if (findeval(val)==true){
+							for (var i = 0; i<liste.length; i++) {
+								if (i%2 != 0){
+									if(liste[i].includes(val)){
+										kat_select.value = liste[i-1];
+										kat_select.disabled=true;
+
+									}
+								}				
+							}
+						}
+
+						if (kat_select.disabled==true && findeval(val)!=true){
+							kat_select.value = "Sonstiges";
+							kat_select.disabled=false;
+						}
+
+						
+					}
+
+					function eingabelöschen(para){
+						var element = document.getElementById("zut");
+						element.removeChild(para);
+					}
+				</script>
+			</div>
+		</div>
+	</body>
+</html>
