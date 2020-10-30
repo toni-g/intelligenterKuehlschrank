@@ -6,12 +6,13 @@ Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgi
 2. xampp installieren und ggf. Ports anpassen
 3. Module Apache und MySQL auf xampp starten
 4. localhost/phpmyadmin/ im Browser öffnen
-5. links auf "Neu" klicken und so eine neue Datenbank erstellen (der Name der Datebank kann beliebig gewählt werden)
+5. links auf "Neu" klicken und so eine neue Datenbank erstellen (der Name der Datebank muss "codecompetition" heißen)
 6. die erstellte Datenbank auswählen und in der Menüleiste auf "Importieren" klicken
 7. im Absatz "Zu importierende Datei:" auf den Button "Datei auswählen" klicken und die heruntergeladene Datei "codecompetition.sql" öffnen
 
-8. die Kommandozeile öffnen und folgenden Befehl ausfühen:<br>
+8. die Kommandozeile öffnen und folgende Befehle ausfühen:<br>
 pip install flask
+pip install mysql.connector
 9. in der Kommandozeile zum Ordner wechseln, der die Datei app.py enthält
 10. den Befehl "python app.py" ausführen (im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile, z.B. http://127.0.0.1:5000/)
 11. die url in einem Browser öffnen
@@ -19,8 +20,10 @@ pip install flask
 ## Anleitung zum Benutzen
 Nach dem Öffnen landen Sie auf der Startseite, wo zu sehen ist, welche Lebensmittel sich im Kühlschrank befinden und welche Gerichte daraus gekocht werden können.
 Sollten Sie die Anwendung zum ersten Mal öffnen, sehen Sie noch kein Rezept, weil Sie noch keine Lebensmittel ausgewählt haben. <br>
-Klicken Sie daher auf den Button "<- Zum Kühlschrank", wo Sie alle Lebensmittel sehen, die für die Rezepte benötigt werden. Die Lebensmittel sind nach Kategorien sortiert. Viele Lebensmittel sehen Sie nicht, da sich nur sechs Rezepte in der Datenbank befinden.<br>
-
+Klicken Sie daher auf den Button "<- Zum Kühlschrank", wo Sie alle Lebensmittel sehen, die für alle Rezepte benötigt werden. Die Lebensmittel sind nach Kategorien sortiert. Viele Lebensmittel sehen Sie nicht, da sich bisher nur sechs Rezepte in der Datenbank befinden.<br>
+Ziel der Anwendung ist es, möglichst viele Rezepte zu speichern, damit eine große Zutatenvielfalt entsteht.<br>
+Neue Rezepte können Sie jederzeit selber hinzufügen, indem sie die Eingabefelder auf der Seite "/neues_rezept" ausfüllen und abschicken. Falls Sie eine Zutat eingeben, die bereits in der Datenbank zu finden ist, wird das Feld für die Kategorie ausgeraut und zeigt die zugehörige Kategorie an.<br>
+Sie können auch ein Bild des Gerichtes hochladen.
 
 ## Datenbank
 
