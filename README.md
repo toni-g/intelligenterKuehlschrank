@@ -44,4 +44,6 @@ Die Datenbank besteht aus 6 Tabellen
   Dabei entspricht der Wert in der Spalte _ZutatenID_ der ZutatenID der ausgewählen Zutat und der Wert in der Spalte _da_seit_ der aktuellen Uhrzeit. Der Wert der Spalte _weg_seit_ ist NULL, weil sich das Lebensmittel noch im Kühlschrank befindet.<br>
   Sobald das Lebensmittel wieder nicht ausgewählt ist, wird der Eintrag in der Datenbank durch das aktuelle Datum in der Spalte _weg_seit_ ergänzt.
 6. log_vorschlaege<br>
-  Jedes Mal, wenn der Nutzer wieder auf die Startseite kommt, werden die Rezepte, die ihm vorgeschlagen werden, in dieser Tabelle dokumentiert. Auch die aktuelle Zeit wird hier eingetragen.
+  Jedes Mal, wenn der Nutzer wieder auf die Startseite kommt, werden die Rezepte, die ihm vorgeschlagen werden, in dieser Tabelle dokumentiert. Auch die aktuelle Zeit wird hier eingetragen.<br>
+
+![Datenbankstruktur](/static/Datenbank_Struktur.png)
