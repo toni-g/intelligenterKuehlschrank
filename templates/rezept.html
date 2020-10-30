@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			.inhalt{
+				width: 50%;
+				overflow: hidden;
+				margin-left: 25%;
+				margin-top: 20px;
+			}
+
+			.back{
+				background-color: #cce6ff;
+				font-family:Lucida Grande;
+				font-size: 50px;
+				border:1px solid #004f99;
+				color: black;
+				width:100px;
+				line-height: 22px;
+				margin: 10px;
+				display:table;
+				vertical-align:center;
+			}
+			.zutaten{
+				float:left;
+				margin-right: 0px;
+				margin-top:40px;
+				padding: auto;
+				width:45%;
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.bild{
+				float:right;
+				width: 45%;
+				height: 250px;
+				overflow: hidden;
+				margin-top:40px;
+			}
+
+			.zubereitung{
+				float: left;
+				margin-top:30px;
+				width:100%;
+				text-align: justify;
+				
+			}
+			@media screen and (max-width: 900px) {
+				.inhalt{
+					width: 90%;
+					margin-left: 5%;
+				}
+				.back{
+					margin: 0px;
+				}
+				.zutaten{
+					width:100%;
+				}
+				.bild{
+					width:100%;
+					text-align: center;
+
+				}
+				.zubereitung{
+					width:100%;
+					float:left;
+				}
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="inhalt">
+			<form action="/" style="width: 10%;">
+				<input type="submit" class="btn btn-primary back" name="back" value="←">
+			</form>
+			<div style="border:1px solid #004f99; border-radius: 25px; padding: 20px; overflow: auto; margin-top: 10px; margin-bottom: 10px;">
+				<h1 class="name">{{name}}</h1>
+
+				<div class="bild">
+					<img src="{{url_for('static', filename=datei) }}" style="height:80%; margin: 0 auto;" /><br>
+					<h5 style="margin: 0 auto;margin-top: 10px;">🕐 {{dauer}}</h5><br>
+				</div>
+				
+				<div class="zutaten" align="middle">
+					<div >
+						<h4 align="left">Zutaten</h4>
+						{% for i in menge %}
+							<p style="margin:0px; margin-bottom: 5px;">{{i[0]}} {{i[1]}}</p>
+						{% endfor %}
+					</div>
+				</div>
+
+				
+				
+				<div class="zubereitung">
+					<h4>Zubereitung</h4>
+					{% for schritt in zubereitung %}
+						<p style="margin-bottom: 5px;">{{schritt}}</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>	
+		
+		
+	</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style type="text/css">
+			.inhalt{
+				margin: auto;
+				width: 35%;
+				overflow: hidden;
+				margin:20px;
+				grid-template-columns: auto;
+				grid-template-areas:'left right';
+			}
+
+			.linkespalte{
+				display: grid;
+				width: 50%;
+				float: left;
+				text-align: left;
+				height: auto;
+				grid-area: left;
+			}
+
+			.rechtespalte{
+				display: grid;
+				width: 50%;
+				text-align: left;
+				height: auto;
+				grid-area: right;
+				margin:0px;
+				padding-left: 40px;
+			}
+
+			.knopf{
+				background-color: #cce6ff;
+				border:1px solid #004f99;
+				color: black;
+				width:200px;
+				margin: 10px;
+			}
+
+			@media screen and (max-width: 900px) {
+				.inhalt{
+					width: 100%;
+				}
+				.linkespalte{
+					float: none;
+					width: 100%;
+				}
+
+				.rechtespalte{
+					width: 100%;
+					padding-left: 0px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<h1 align="middle" style="margin-bottom: 30px;">Dein Kühlschrank</h1>
+		<div align="middle" style="width: 100%;">
+			<form method="post" action="/" >
+				<button class="btn btn-primary knopf" onclick="allesauswaehlen();return false;">Alles auswählen</button>
+				<button class="btn btn-primary knopf" onclick="nichtsauswaehlen();return false;">Nichts auswählen</button>
+				<input type="submit" class="btn btn-primary knopf" value="Aktualisieren">
+				<div align="middle" class="inhalt">
+					<div class="linkespalte">
+					{% for i in range(zutaten | length) %}
+						{% if i%2 == 0 %}
+							{% if (i/2)%2 == 0 %}
+								<div style="display: grid; text-align: left;height: auto;">
+									<h5 style="margin:0px;margin-top: 20px;margin-bottom: 10px;">{{zutaten [i]}}</h5>
+									{% for k in range(zutaten[i+1]|length) %}
+										{% if zutaten[i+1][k] in vorhanden %}
+											<label for="{{zutaten[i+1][k]}}"> 
+												<input type="checkbox" id="{{zutaten[i+1][k]}}" name="lebensmittel" value="{{zutaten[i+1][k]}}"  checked> {{zutaten[i+1][k]}}
+											</label>
+										{% else %}
+											<label for="{{zutaten[i+1][k]}}"> 
+												<input type="checkbox" id="{{zutaten[i+1][k]}}" name="lebensmittel" value="{{zutaten[i+1][k]}}" > {{zutaten[i+1][k]}}
+											</label>
+										{% endif %}	
+									{% endfor %}
+								</div>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="rechtespalte">
+					{% for i in range(zutaten | length) %}
+						{% if i%2 == 0 %}
+							{% if (i/2)%2 != 0 %}
+								<div style="display: grid; text-align: left;height: auto;">
+									<h5 style="margin:0px;margin-top: 20px;margin-bottom: 10px;">{{zutaten [i]}}</h5>
+									{% for k in range(zutaten[i+1]|length) %}
+										{% if zutaten[i+1][k] in vorhanden %}
+											<label for="{{zutaten[i+1][k]}}"> 
+												<input type="checkbox" id="{{zutaten[i+1][k]}}" name="lebensmittel" value="{{zutaten[i+1][k]}}"  checked> {{zutaten[i+1][k]}}
+											</label>
+										{% else %}
+											<label for="{{zutaten[i+1][k]}}"> 
+												<input type="checkbox" id="{{zutaten[i+1][k]}}" name="lebensmittel" value="{{zutaten[i+1][k]}}" > {{zutaten[i+1][k]}}
+											</label>
+										{% endif %}	
+									{% endfor %}
+								</div>
+							{% endif %}
+						{% endif %}
+					{% endfor %}
+				</div>
+				</div>
+			</form>
+		</div>
+		<script>
+			function allesauswaehlen() {
+				checkboxes = document.getElementsByName('lebensmittel');
+				for(var i=0, n=checkboxes.length;i<n;i++) {
+					checkboxes[i].checked = true;
+				}
+			}
+			function nichtsauswaehlen(){
+				checkboxes = document.getElementsByName('lebensmittel');
+				for(var i=0, n=checkboxes.length;i<n;i++) {
+					checkboxes[i].checked = false;
+				}
+			}
+		</script>
+	</body>
+</html>
