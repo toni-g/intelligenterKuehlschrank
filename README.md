@@ -11,7 +11,7 @@ Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgi
 7. im Absatz "Zu importierende Datei:" auf den Button "Datei auswählen" klicken und die heruntergeladene Datei "codecompetition.sql" öffnen
 
 8. die Kommandozeile öffnen und folgende Befehle ausfühen:<br>
-pip install flask
+pip install flask<br>
 pip install mysql.connector
 9. in der Kommandozeile zum Ordner wechseln, der die Datei app.py enthält
 10. den Befehl "python app.py" ausführen (im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile, z.B. http://127.0.0.1:5000/)
