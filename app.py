@@ -41,7 +41,7 @@ def vorhandenaktualisieren():
 #die Einträge des Arrays an gerader Stelle sind die Rezepte, die Rezeptdauer und die Zubereitung, die Einträge an ungerader Stelle sind die Zutaten des Rezeptes von der Stelle davor
 def allerezepteaktualisieren():
 	allerezepte = []
-	mycursor.execute("SELECT Rezeptname,Dauer,Zubereitung,Bilddatei FROM rezept")
+	mycursor.execute("SELECT Rezeptname,Dauer,Zubereitung,Bilddatei FROM rezept ORDER BY RezeptID DESC")
 	myresult = mycursor.fetchall()
 	for i in myresult:
 		allerezepte.append(list(i)) #aus den ausgelesenen Werten wird ein Array erstellt und im Array "allerezepte" gespeichtert
@@ -71,7 +71,7 @@ def kochbarerezepteaktualisieren():
 	for i in kochbare_rezepte:
 		mycursor.execute("INSERT INTO log_vorschlaege (`RezeptID`, `Vorgeschlagen`) VALUES ((SELECT RezeptID FROM rezept WHERE Rezeptname = %s),%s)",(i[0],datum))
 		mydb.commit()
-		
+
 	return kochbare_rezepte #der Rückgabewert dieser Funktion ist das Array "kochbare_rezepte"
 
 
