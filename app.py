@@ -36,22 +36,46 @@ def vorhandenaktualisieren():
 	vorhanden.sort()
 	return vorhanden
 
+#die Funktion gibt den letzen Wert des Tuples wieder (alse wie oft das Rezept bisher vorgeschlagen wurde)
+def anzahl(elem):
+	return elem[0][-1]
+
 #es wird ein Array mit allen Rezepten und den jeweiligen Zutaten erstellt
 #das Array hat folgende Form: [[rezept1,dauer1,zubereitung1],[zutat1,zutat2,...],[rezept2,dauer2,zubereitung2],[zutat1,zutat5,...]]
 #die Einträge des Arrays an gerader Stelle sind die Rezepte, die Rezeptdauer und die Zubereitung, die Einträge an ungerader Stelle sind die Zutaten des Rezeptes von der Stelle davor
 def allerezepteaktualisieren():
-	allerezepte = []
+	arr = []
 	mycursor.execute("SELECT Rezeptname,Dauer,Zubereitung,Bilddatei FROM rezept ORDER BY RezeptID DESC")
 	myresult = mycursor.fetchall()
 	for i in myresult:
-		allerezepte.append(list(i)) #aus den ausgelesenen Werten wird ein Array erstellt und im Array "allerezepte" gespeichtert
+		#aus den ausgelesenen Werten wird ein Array erstellt und im Array "allerezepte" gespeichtert
+		liste = list(i)
+		t = []
+		#es wird gezählt, wie oft die einzelnen Rezepte bereits vorgeschlagen wurden
+		mycursor.execute("SELECT COUNT(*) FROM log_vorschlaege INNER JOIN rezept ON log_vorschlaege.RezeptID = rezept.RezeptID WHERE Rezeptname=%s",(i[0],))
+		res = mycursor.fetchone()
+		for x in res:
+			liste.append(x)
+		t.append(liste)
 		zut = []
 		mycursor.execute("SELECT zutaten.Zutat FROM menge INNER JOIN rezept ON rezept.RezeptID = menge.RezeptID INNER JOIN zutaten ON zutaten.ZutatenID = menge.ZutatenID WHERE Rezeptname=%s",(i[0],))
 		myresult = mycursor.fetchall()
 		c = chain.from_iterable(myresult)
 		for eintrag in c:
 			zut.append(eintrag)
-		allerezepte.append(zut) #dem Array "allerezepte" wird ein Array mit den Zutaten angehängt, die für das Rezept benötigt werden
+		t.append(zut)
+		tuple(t)
+		arr.append(t)
+	#das Array "arr" enthält für jedes Rezept ein Tuple (Details,Zutaten)
+	allerezepte = []
+	arr.sort(key=anzahl) #die Tuples werden nach der Anzahl bishereiger Vorschläge sortiert
+
+	#die Elemente des Tuples werden entpackt und dem Array "allerezepte" angehängt
+	for i in arr:
+		a,b = i
+		allerezepte.append(a)
+		allerezepte.append(b)
+
 	return allerezepte #der Rückgabewert dieser Funktion ist das Array "allerezepte"
 
 #es wird ein Array mit allen Rezepten erstellt, die mit den vorhandenen Lebensmitteln gekocht werden können
