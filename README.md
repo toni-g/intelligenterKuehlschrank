@@ -51,3 +51,8 @@ Die Datenbank besteht aus 6 Tabellen:
 ## Verbesserungsmöglichkeiten
 
 + Die Menge wird für 4 Portionen angegeben. Man könnte eine Umrechnungsfunktion implementieren, was allerdings eher in die Kategorie "Rezept" als in die Kategorie "intelligenter Kühlschrank fällt".
+
++ In dieser Anwendung wird die Menge der vorhandenen Lebensmittel nicht angegeben. Um ein genaueres Ergebnis für die kochbaren Rezepte zu erzielen, müsste die Menge ebenfalls berücksichtigt werden.
+
++ Man könnte die Anwendung noch durch die Generierung einer Einkaufsliste erweitern.<br>
+Nach der Auswahl eines Rezeptes (oder mehrerer für einen Wochenplan) können anhand des aktuellen Kühlschrankinhalts die fehlenden Lebensmittel ermittelt und eine Einkaufsliste erstellt werden.
