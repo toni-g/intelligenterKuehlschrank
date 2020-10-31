@@ -8,13 +8,13 @@ Eine Anwendung, die nach Eingabe vorhandener Lebensmittel kochbare Rezepte ausgi
 4. `localhost/phpmyadmin/` im Browser öffnen
 5. links auf "Neu" klicken und so eine neue Datenbank erstellen (der Name der Datebank muss "codecompetition" heißen)
 6. die erstellte Datenbank auswählen und in der Menüleiste auf "Importieren" klicken
-7. im Absatz "Zu importierende Datei:" auf den Button "Datei auswählen" klicken und die heruntergeladene Datei "codecompetition.sql" öffnen
+7. im Absatz "Zu importierende Datei:" auf den Button "Datei auswählen" klicken und die heruntergeladene Datei `codecompetition.sql` öffnen
 
 8. die Kommandozeile öffnen und folgende Befehle ausfühen:<br>
 `pip install flask`<br>
 `pip install mysql.connector`
 9. in der Kommandozeile zum Ordner wechseln, der die Datei `app.py` enthält
-10. den Befehl `python app.py` ausführen (im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile, z.B. http://127.0.0.1:5000/)
+10. den Befehl `python app.py` ausführen. Im Fenster der Kommandozeile sollten 6 Zeilen erscheinen mit einer url in der letzten Zeile, z.B. http://127.0.0.1:5000/
 11. die url in einem Browser öffnen
 
 ## Anleitung zum Benutzen
@@ -27,7 +27,7 @@ Sie können auch ein Bild des Gerichts hochladen.
 
 ## Datenbank
 
-Die Datenbank besteht aus 6 Tabellen
+Die Datenbank besteht aus 6 Tabellen:
 1. rezept<br>
   Die Tabelle _rezept_ enthält alle Rezepte, die von der Anwendung ausgegeben werden können. Hier sind Rezeptname, Zubereitung, Dauer und die Bilddatei gespeichert. Jedes Rezept besitzt eine ID, die der Hauptschlüssel ist.<br>
   Sollte der Nutzer ein Rezept ohne Bild hochgeladen haben, ist die Bilddatei der Platzhalter `noimage.png`.
