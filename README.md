@@ -50,4 +50,4 @@ Die Datenbank besteht aus 6 Tabellen:
 
 ## Verbesserungsmöglichkeiten
 
-+ Die Menge wird für 4 Portionen angegeben. Man könnte eine Umrechnungsfunktion implementieren, was allerdings eher in die Kategorie "Rezept" als in die Kategorie "intelligenter Kühlschrank fällt"
++ Die Menge wird für 4 Portionen angegeben. Man könnte eine Umrechnungsfunktion implementieren, was allerdings eher in die Kategorie "Rezept" als in die Kategorie "intelligenter Kühlschrank fällt".
