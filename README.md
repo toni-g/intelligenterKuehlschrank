@@ -23,8 +23,8 @@ Sollten Sie die Anwendung zum ersten Mal öffnen, sehen Sie noch kein Rezept, we
 Klicken Sie daher auf den Button "<- Zum Kühlschrank", wo Sie die Lebensmittel sehen, die für alle Rezepte benötigt werden. Die Lebensmittel sind nach Kategorien sortiert. Die Menge der Lebensmittel ist noch klein, da sich nach Installation nur sechs Rezepte in der Datenbank befinden.<br>
 Im Laufe der Benutzung der Anwendung sollten möglichst viele Rezepte gespeichert werden, damit eine große Zutatenvielfalt entsteht.<br>
 Neue Rezepte können Sie jederzeit selber hinzufügen, indem sie die Eingabefelder auf der Seite "neues_rezept" ausfüllen und abschicken. Falls Sie eine Zutat eingeben, die bereits in der Datenbank zu finden ist, wird das Feld für die Kategorie ausgeraut und zeigt die zugehörige Kategorie an.<br>
-Sie können auch ein Bild des Gerichts hochladen.
-
+Sie können auch ein Bild des Gerichts hochladen.<br><br>
+Die vorgeschlagenen Rezepte werden nach der Anzahl der bisherigen Vorschläge sortiert. Wurde ein Rezept erst selten vorgeschlagen, taucht es in der Liste der Vorschläge weiter vorne auf, damit der Nutzer auf Rezepte aufmerksam gemacht wird, die ihm noch nicht häufig vorgeschlagen wurden. Auch ist dadurch gewährleistet, dass "Standartrezepte", also Rezepte, deren Zutaten meist vorhanden sind, weniger hoch priorisiert werden.
 ## Datenbank
 
 Die Datenbank besteht aus 6 Tabellen:
